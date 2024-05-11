@@ -1,0 +1,19 @@
+.array-container {
+    position: absolute;
+    left: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-end;
+    justify-content: flex-end;
+    
+
+  }
+  
+  .array-bar {
+    background-color: turquoise;
+    color: turquoise;
+    width: 2px;
+    margin:2px;
+    padding: 5px;
+  }
+  
