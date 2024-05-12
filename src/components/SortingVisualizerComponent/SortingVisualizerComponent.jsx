@@ -3,8 +3,9 @@ import "../SortingVisualizerComponent/SortingVisualizerComponent.css";
 
 const SortingVisualizerComponent = () => {
   const [array, setArray] = useState([]);
-  const no_of_arrayBars = 10; // Defining the number of bars to be shown
-  const animationSpeed = 200; // Adjust animation speed as needed
+  const [movingIndex, setMovingIndex] = useState(null);
+  const no_of_arrayBars = 100; // Defining the number of bars to be shown
+  const animationSpeed = 10; // Adjust animation speed as needed
 
   const random_number_generator = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -17,6 +18,7 @@ const SortingVisualizerComponent = () => {
     for (let i = 0; i < no_of_arrayBars; i++) {
       swapped = false;
       for (let j = 0; j < no_of_arrayBars - i - 1; j++) {
+        setMovingIndex(j);
         if (tempArray[j] > tempArray[j + 1]) {
           [tempArray[j], tempArray[j + 1]] = [tempArray[j + 1], tempArray[j]];
           swapped = true;
@@ -24,6 +26,7 @@ const SortingVisualizerComponent = () => {
           await sleep(animationSpeed);
         }
       }
+      setMovingIndex(null); // Reset moving index after sorting
       if (!swapped) break;
     }
   };
@@ -44,7 +47,7 @@ const SortingVisualizerComponent = () => {
     <div className="array-container">
       {array.map((value, index) => (
         <div
-          className="array-bar"
+          className={`array-bar ${index === movingIndex ? "moving" : ""}`}
           style={{ height: `${value}px` }}
           key={index}
         ></div>

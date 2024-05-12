@@ -16,4 +16,8 @@
     margin:2px;
     padding: 5px;
   }
+
+  .moving {
+    background-color: red; /* Change the color to whatever you like */
+  }
   
