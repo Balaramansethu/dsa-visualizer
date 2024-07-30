@@ -4,6 +4,7 @@ const App = () => {
   return (
     <React.Fragment>
       <SortingVisualizerComponent/>
+      {/* <SortingcodeVisualizer/> */}
     </React.Fragment>
   )
 }
