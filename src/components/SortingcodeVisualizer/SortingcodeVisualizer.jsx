@@ -2,8 +2,7 @@ import React from "react";
 import "./SortingcodeVisualizer.css";
 const SortingcodeVisualizer = ({ currentLine }) => {
   const codeLines = [
-    "let tempArray = [...array];",
-    "let swapped = false;",
+
     "for (let i = 0; i < no_of_arrayBars; i++) {",
     "  swapped = false;",
     "  for (let j = 0; j < no_of_arrayBars - i - 1; j++) {",
@@ -23,9 +22,9 @@ const SortingcodeVisualizer = ({ currentLine }) => {
   return (
     <div className="code-display">
       {codeLines.map((line, index) => (
-        <pre key={index} className={index === currentLine ? "highlight" : ""}>
+        <h5 key={index} className={index === currentLine ? "highlight" : ""}>
           {line}
-        </pre>
+        </h5>
       ))}
     </div>
   );
