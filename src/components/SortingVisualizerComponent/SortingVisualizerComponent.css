@@ -1,23 +1,36 @@
 .array-container {
-    position: absolute;
-    left: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items:flex-end;
-    justify-content: flex-end;
-    
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  /* padding-left: 650px; */
+  padding-top: 280px;
+  position: absolute;
+  width: 100%;
+}
 
-  }
-  
-  .array-bar {
-    background-color: turquoise;
-    color: turquoise;
-    width: 2px;
-    margin:2px;
-    padding: 5px;
-  }
+.input-container {
+  margin-top: 33rem;
+  padding-left: 650px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
 
-  .moving {
-    background-color: red; /* Change the color to whatever you like */
-  }
-  
+}
+
+.array-bar {
+  background-color: turquoise;
+  color: turquoise;
+  width: 2px;
+  margin: 2px;
+  padding-left: 10px;
+}
+
+.moving {
+  background-color: red;
+}
+
+* {
+  margin: 0%;
+}

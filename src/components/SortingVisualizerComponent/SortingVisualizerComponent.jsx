@@ -6,9 +6,10 @@ const SortingVisualizerComponent = () => {
   const [array, setArray] = useState([]);
   const [movingIndex, setMovingIndex] = useState(null);
   const [currentLine, setCurrentLine] = useState(null);
+  const [barSize, setBarSize] = useState(5);// setting default value as 5 for array bar size
   const [no_of_arrayBars, setNo_of_arrayBars] = useState(0); // default value
-  const [inputValue, setInputValue] = useState('');
-  const animationSpeed = 50; 
+  const [inputValue, setInputValue] = useState("");
+  const animationSpeed = 20;
 
   const random_number_generator = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -23,11 +24,22 @@ const SortingVisualizerComponent = () => {
   };
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    const value = event.target.value;
+    if (/^\d*$/.test(value)) {
+      setInputValue(value); // Update the input if it's numeric
+    } else {
+      alert("Please enter a valid numerical input."); // Alert if non-numeric
+    }
   };
 
-  const handleSetArrayBars = () => {
+  const handleSetArrayBars = () => { // if the arrays are in more number then reducing the size of array bar
     const bars = parseInt(inputValue);
+    if (bars >= 120) {
+      setBarSize(2);
+    }
+    if (bars >= 200) {
+      setBarSize(1);
+    }
     if (!isNaN(bars) && bars > 0) {
       setNo_of_arrayBars(bars);
     }
@@ -39,7 +51,7 @@ const SortingVisualizerComponent = () => {
 
   const updateCurrentLine = async (line) => {
     setCurrentLine(line);
-    await sleep(70); 
+    await sleep(70);
   };
 
   const updateMovingIndex = async (index) => {
@@ -81,23 +93,40 @@ const SortingVisualizerComponent = () => {
   }, [no_of_arrayBars]);
 
   return (
-    <div className="array-container">
-      <input
-        type="number"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Enter number of bars"
-      />
-      <button onClick={handleSetArrayBars}>Set Number of Bars</button>
-      {array.map((value, index) => (
-        <div
-          className={`array-bar ${index === movingIndex ? "moving" : ""}`}
-          style={{ height: `${value}px` }}
-          key={index}
-        ></div>
-      ))}
-      <button onClick={bubbleSort}>Bubble Sort</button>
-      <SortingcodeVisualizer currentLine={currentLine}/>
+    <div>
+              {/* <SortingcodeVisualizer currentLine={currentLine} /> */} 
+      <div className="array-container">
+        {array.map((value, index) => (
+          <div
+            className={`array-bar ${index === movingIndex ? "moving" : ""}`}
+            style={{ height: `${value}px`, padding: `${barSize}px` }} //applying the altered bar size as padding
+            key={index}
+          ></div>
+        ))}
+      </div>
+      <div className="input-container">
+        <input
+          type="text"
+          className="bg-slate-600 text-white rounded-sm mt-2 pl-10 pt-2 pb-2"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Enter number of bars"
+        />
+
+        <button
+          className="bg-slate-600 text-white rounded-sm mt-2"
+          onClick={handleSetArrayBars}
+        >
+          Set Number of Bars
+        </button>
+        <button
+          className="bg-slate-600 text-white rounded-sm mt-2"
+          onClick={bubbleSort}
+        >
+          Bubble Sort
+        </button>
+        <button className="show-code-button">Show code</button>
+      </div>
     </div>
   );
 };
