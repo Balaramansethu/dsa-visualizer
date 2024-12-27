@@ -3,10 +3,16 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
-  /* padding-left: 650px; */
   padding-top: 280px;
   position: absolute;
   width: 100%;
+}
+.color-black{
+  color: black;
+  font-size: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .input-container {
@@ -31,9 +37,7 @@
   background-color: red;
 }
 
-* {
-  margin: 0%;
-}
+
 
 .custom-modal {
   position: absolute;

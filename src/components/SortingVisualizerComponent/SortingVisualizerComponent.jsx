@@ -10,7 +10,7 @@ const SortingVisualizerComponent = () => {
   const [array, setArray] = useState([]);
   const [movingIndex, setMovingIndex] = useState(null);
   const [currentLine, setCurrentLine] = useState(null);
-  const [barSize, setBarSize] = useState(5);
+  const [barSize, setBarSize] = useState(10);
   const [no_of_arrayBars, setNo_of_arrayBars] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -116,7 +116,12 @@ const SortingVisualizerComponent = () => {
             className={`array-bar ${index === movingIndex ? "moving" : ""}`}
             style={{ height: `${value}px`, padding: `${barSize}px` }}
             key={index}
-          ></div>
+          >
+            <div className="color-black">
+              <p>{value}</p>
+            </div>
+          </div>
+          
         ))}
       </div>
       <div className="input-container">

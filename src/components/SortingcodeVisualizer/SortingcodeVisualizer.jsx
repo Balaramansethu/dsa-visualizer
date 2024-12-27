@@ -3,7 +3,7 @@ import "./SortingcodeVisualizer.css";
 const SortingcodeVisualizer = ({ currentLine }) => {
   const codeLines = [
 
-    "for (let i = 0; i < no_of_arrayBars; i++) {",
+    "for (let i = 0; i < no_of_arrayBars; i++) {",  //dummy code for sorting array
     "  swapped = false;",
     "  for (let j = 0; j < no_of_arrayBars - i - 1; j++) {",
     "    setMovingIndex(j);",

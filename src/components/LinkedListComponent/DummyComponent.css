@@ -1,0 +1,38 @@
+.full-content-container{
+    background-repeat: repeat;
+    background: linear-gradient(109.6deg, rgba(45, 116, 213, 1) 11.2%, rgba(121, 137, 212, 1) 91.2%);    
+}
+
+.overview-image{
+    background-size:32px 32px;
+    background-repeat:repeat;
+    opacity:60%;
+    background-image:radial-gradient(white 1px, transparent 0);
+}
+
+
+.drop-down-categories{
+    padding-right: 8.5rem;
+}
+
+
+.animation-logo{
+    pointer-events: none;
+}
+
+.visualization{
+    overflow-y:auto;
+    overflow-x:hidden
+}
+
+.display-card{
+    transform: none;
+}
+.bg-primary-800 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
+.text-primary-50 {
+    --tw-text-opacity: 1;
+    color: rgb(239 246 255 / var(--tw-text-opacity));
+}
