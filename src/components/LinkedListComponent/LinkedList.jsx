@@ -352,7 +352,7 @@ const LinkedList = () => {
   };
 
   return (
-    <div className="bg-neutral-900 min-h-screen justify-between">
+    <div className="bg-grey dark:bg-neutral-900 min-h-screen justify-between">
       <div className="flex flex-col items-start py-10 gap-4 mx-6 md:mx-20 lg:mx-40">
         <div className="flex flex-col items-center justify-center gap-3 w-full">
           <div className="flex relative items-center justify-center w-full ">
@@ -450,113 +450,74 @@ const LinkedList = () => {
               </div>
             </div>
           </div>
-         <div class="p-4 rounded-lg bg-white shadow-sm border-neutral-300 dark:bg-neutral-800 border dark:border-neutral-700 w-full lg:w-2/5 ">
-  <form class="flex flex-col items-center gap-4">
-    {/* Data Field */}
-    <div class="flex flex-col-reverse gap-1 w-full group">
-      <input
-        type="number"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Enter data"
-        className={`p-2 border rounded-md ${
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Index"
-            ? "bg-gray-200 cursor-not-allowed opacity-50"
-            : ""
-        }`}
-        disabled={
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Index"
-        }
-        title={
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Index"
-            ? "Disabled for the selected action"
-            : ""
-        }
-      />
-      <label
-        className={`text-sm font-medium ${
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Index"
-            ? "text-gray-400"
-            : "dark:text-neutral-300"
-        }`}
-      >
-        Data
-      </label>
-    </div>
-    {/* Index Field */}
-    <div class="flex flex-col-reverse gap-1 w-full group">
-      <input
-        type="number"
-        value={indexValue}
-        onChange={(e) => setIndexValue(e.target.value)}
-        placeholder="Enter index"
-        className={`p-2 border rounded-md ${
-          selectedAction === "Add Node at Back" ||
-          selectedAction === "Add Node at Front" ||
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Data"
-            ? "bg-gray-200 cursor-not-allowed opacity-50"
-            : ""
-        }`}
-        disabled={
-          selectedAction === "Add Node at Back" ||
-          selectedAction === "Add Node at Front" ||
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Data"
-        }
-        title={
-          selectedAction === "Add Node at Back" ||
-          selectedAction === "Add Node at Front" ||
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Data"
-            ? "Disabled for the selected action"
-            : ""
-        }
-      />
-      <label
-        className={`text-sm font-medium ${
-          selectedAction === "Add Node at Back" ||
-          selectedAction === "Add Node at Front" ||
-          selectedAction === "Remove First Node" ||
-          selectedAction === "Remove Last Node" ||
-          selectedAction === "Reverse List" ||
-          selectedAction === "Clear List" ||
-          selectedAction === "Remove Node by Data"
-            ? "text-gray-400"
-            : "dark:text-neutral-300"
-        }`}
-      >
-        Index
-      </label>
-    </div>
-  </form>
-</div>
-
+          <div class="p-4 rounded-lg bg-white shadow-sm border-neutral-300 dark:bg-neutral-800 border dark:border-neutral-700 w-full lg:w-2/5 ">
+            <form class="flex flex-col items-center gap-4">
+              <div class="flex flex-col-reverse gap-1 w-full group">
+                {/* here goes the data field */}
+                <input
+                  type="number"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  placeholder="Enter data"
+                  className="p-2 border rounded-md"
+                  disabled={
+                    selectedAction === "Remove First Node" ||
+                    selectedAction === "Remove Last Node" ||
+                    selectedAction === "Reverse List" ||
+                    selectedAction === "Clear List" ||
+                    selectedAction === "Remove Node by Index"
+                  }
+                />
+                <label class="text-sm dark:text-neutral-300 font-medium  font-medium peer-focus:text-primary-800 dark:peer-focus:text-primary-300">
+                  Data
+                </label>
+              </div>
+              <div class="flex flex-col-reverse gap-1 w-full group">
+                {/* here goes the index field */}
+                <input
+                  type="number"
+                  value={indexValue}
+                  onChange={(e) => setIndexValue(e.target.value)}
+                  placeholder="Enter index"
+                  className="p-2 border rounded-md"
+                  disabled={
+                    selectedAction === "Add Node at Back" ||
+                    selectedAction === "Add Node at Front" ||
+                    selectedAction === "Remove First Node" ||
+                    selectedAction === "Remove Last Node" ||
+                    selectedAction === "Reverse List" ||
+                    selectedAction === "Clear List" ||
+                    selectedAction === "Remove Node by Data"
+                  }
+                />
+                <label class="text-sm dark:text-neutral-300 font-medium  font-medium peer-focus:text-primary-800 dark:peer-focus:text-primary-300">
+                  Index
+                </label>
+              </div>
+              <button
+                onClick={handleAction}
+                type="submit"
+                className="pl-6 pr-6 pt-4 pb-4 gap-4 m-2 uppercase inline-flex items-center justify-center text-xs font-medium rounded-md focus:ring border border-transparent box-border disabled:select-none disabled:cursor-not-allowed bg-primary-800 text-primary-50 hover:bg-primary-900 disabled:bg-neutral-500 w-full mb-0"
+                label="EXECUTE"
+              >
+                <p className="text-left">EXECUTE</p>
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </form>
+          </div>
           <div class="p-4 rounded-lg bg-white shadow-sm border-neutral-300 dark:bg-neutral-800 border dark:border-neutral-700 w-full lg:w-2/5 flex flex-col h-64 gap-1 md:-order-1 order-3 overflow-y-auto">
             <label class="text-sm dark:text-neutral-300 font-medium undefined">
               Information
