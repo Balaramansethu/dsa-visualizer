@@ -352,7 +352,7 @@ const LinkedList = () => {
   };
 
   return (
-    <div className="bg-primary-900/10 dark:bg-neutral-900 min-h-screen justify-between">
+    <div className="bg-neutral-900 min-h-screen justify-between">
       <div className="flex flex-col items-start py-10 gap-4 mx-6 md:mx-20 lg:mx-40">
         <div className="flex flex-col items-center justify-center gap-3 w-full">
           <div className="flex relative items-center justify-center w-full ">
